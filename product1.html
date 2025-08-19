@@ -1,0 +1,183 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>منتج 1</title>
+<style>
+  body {
+    margin: 0;
+    font-family: Arial, sans-serif;
+    background: #fff;
+  }
+
+  h1 {
+    text-align: center;
+    padding: 20px;
+  }
+
+  .gallery {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    gap: 15px;
+    padding: 20px;
+  }
+
+  .gallery img {
+    width: 100%;
+    height: 250px;
+    object-fit: cover;
+    border-radius: 10px;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+    cursor: zoom-in;
+    transition: transform 0.3s;
+  }
+
+  .gallery img:hover { transform: scale(1.05); }
+
+  a.back {
+    display: block;
+    text-align: center;
+    margin: 20px auto;
+    text-decoration: none;
+    color: #333;
+    background: #f1f1f1;
+    padding: 10px 20px;
+    border-radius: 8px;
+    width: fit-content;
+  }
+
+  /* Lightbox */
+  .lightbox {
+    position: fixed;
+    inset: 0;
+    background: rgba(0,0,0,0.8);
+    display: none;
+    align-items: center;
+    justify-content: center;
+    z-index: 1000;
+    flex-direction: column;
+  }
+
+  .lightbox.open { display: flex; }
+
+  .lightbox img {
+    max-width: 90vw;
+    max-height: 80vh;
+    border-radius: 12px;
+  }
+
+  .lightbox .close {
+    position: absolute;
+    top: 20px;
+    right: 20px;
+    background: #fff;
+    color: #111;
+    border: none;
+    border-radius: 12px;
+    padding: 8px 12px;
+    font-weight: 700;
+    cursor: pointer;
+  }
+
+  .lightbox .nav {
+    position: absolute;
+    top: 50%;
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    transform: translateY(-50%);
+    padding: 0 20px;
+  }
+
+  .lightbox .nav button {
+    background: rgba(255,255,255,0.7);
+    border: none;
+    font-size: 36px;
+    cursor: pointer;
+    border-radius: 50%;
+    width: 60px;
+    height: 60px;
+  }
+</style>
+</head>
+<body>
+
+<h1>صور التجليدات</h1>
+
+<div class="gallery" id="gallery">
+  <img src="./تجليدات/2.jpg" alt="مطبخ 1">
+  <img src="./تجليدات/3.jpg" alt="مطبخ 2">
+  <img src="./تجليدات/4.jpg" alt="مطبخ 3">
+  <img src="./تجليدات/5.jpg" alt="مطبخ 3">
+  <img src="./تجليدات/7.jpg" alt="مطبخ 3">
+  <img src="./تجليدات/8.jpg" alt="مطبخ 3">
+  <img src="./تجليدات/9.jpg" alt="مطبخ 3">
+</div>
+
+<a href="index.html" class="back">⬅ رجوع</a>
+
+<!-- Lightbox -->
+<div class="lightbox" id="lightbox">
+  <button class="close" id="lbClose">X</button>
+  <div class="nav">
+    <button id="prev">&#10094;</button>
+    <button id="next">&#10095;</button>
+  </div>
+  <img id="lbImg" src="" alt="Zoomed Image">
+</div>
+
+<script>
+const images = Array.from(document.querySelectorAll('#gallery img'));
+const lightbox = document.getElementById('lightbox');
+const lbImg = document.getElementById('lbImg');
+const closeBtn = document.getElementById('lbClose');
+const prevBtn = document.getElementById('prev');
+const nextBtn = document.getElementById('next');
+let currentIndex = 0;
+
+// فتح Lightbox عند الضغط على أي صورة
+images.forEach((img, i) => {
+  img.addEventListener('click', () => {
+    currentIndex = i;
+    lbImg.src = img.src;
+    lightbox.classList.add('open');
+    document.body.style.overflow = 'hidden';
+  });
+});
+
+// إغلاق Lightbox
+closeBtn.addEventListener('click', () => {
+  lightbox.classList.remove('open');
+  document.body.style.overflow = '';
+});
+
+// أزرار التنقل
+prevBtn.addEventListener('click', () => {
+  currentIndex = (currentIndex - 1 + images.length) % images.length;
+  lbImg.src = images[currentIndex].src;
+});
+nextBtn.addEventListener('click', () => {
+  currentIndex = (currentIndex + 1) % images.length;
+  lbImg.src = images[currentIndex].src;
+});
+
+// إغلاق عند الضغط على خلفية Lightbox
+lightbox.addEventListener('click', e => {
+  if(e.target === lightbox) {
+    lightbox.classList.remove('open');
+    document.body.style.overflow = '';
+  }
+});
+
+// اختصارات لوحة المفاتيح
+window.addEventListener('keydown', e => {
+  if(!lightbox.classList.contains('open')) return;
+  if(e.key === 'Escape') closeBtn.click();
+  if(e.key === 'ArrowLeft') prevBtn.click();
+  if(e.key === 'ArrowRight') nextBtn.click();
+});
+</script>
+
+</body>
+</html>
