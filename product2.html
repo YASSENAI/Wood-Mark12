@@ -3,100 +3,111 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>WOOD AND MOTION - صور دريسينج</title>
+<title>WOOD AND MOTION - معرض الصور</title>
 <style>
   body {
     margin: 0;
-    font-family: Arial, sans-serif;
-    background: #000;
+    font-family: "Cairo", Arial, sans-serif;
+    background: #0d0d0d;
     color: #fff;
   }
 
   header {
     text-align: center;
-    padding: 20px;
+    padding: 25px 10px;
+    background: linear-gradient(135deg, #000, #1a1a1a);
   }
 
   header img {
-    width: 120px;
+    width: 130px;
     height: auto;
     margin-bottom: 10px;
   }
 
   h1 {
-    font-size: 24px;
+    font-size: 26px;
     margin: 0;
+    color: #f5c518;
+    letter-spacing: 1px;
   }
 
+  /* جاليري */
   .gallery {
-    display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
-    gap: 15px;
+    columns: 4 250px;
+    column-gap: 15px;
     padding: 20px;
   }
 
   .gallery img {
     width: 100%;
-    height: 220px;
-    object-fit: cover;
-    border-radius: 10px;
-    box-shadow: 0 2px 8px rgba(255,255,255,0.1);
+    margin-bottom: 15px;
+    border-radius: 12px;
     cursor: zoom-in;
-    transition: transform 0.3s;
+    transition: all 0.4s ease;
+    box-shadow: 0 2px 10px rgba(255, 215, 0, 0.15);
   }
 
-  .gallery img:hover { transform: scale(1.05); }
+  .gallery img:hover {
+    transform: scale(1.05);
+    box-shadow: 0 5px 20px rgba(255, 215, 0, 0.4);
+    filter: brightness(1.1);
+  }
 
   a.back {
     display: block;
     text-align: center;
-    margin: 20px auto;
+    margin: 25px auto;
     text-decoration: none;
-    color: #fff;
-    background: #333;
-    padding: 10px 20px;
+    color: #000;
+    background: #f5c518;
+    font-weight: bold;
+    padding: 12px 25px;
     border-radius: 8px;
     width: fit-content;
     transition: 0.3s;
   }
 
-  a.back:hover {
-    background: #555;
-  }
+  a.back:hover { background: #d4aa17; }
 
   /* Lightbox */
   .lightbox {
     position: fixed;
     inset: 0;
-    background: rgba(0,0,0,0.9);
+    background: rgba(0,0,0,0.95);
     display: none;
     align-items: center;
     justify-content: center;
     z-index: 1000;
     flex-direction: column;
+    animation: fadeIn 0.5s ease;
   }
 
   .lightbox.open { display: flex; }
 
   .lightbox img {
-    max-width: 90vw;
-    max-height: 80vh;
-    border-radius: 12px;
-    box-shadow: 0 2px 15px rgba(255,255,255,0.3);
+    max-width: 85vw;
+    max-height: 70vh;
+    border-radius: 15px;
+    box-shadow: 0 2px 15px rgba(255,215,0,0.3);
+    transition: all 0.4s ease;
   }
 
   .lightbox .close {
     position: absolute;
     top: 20px;
-    right: 20px;
-    background: #fff;
-    color: #111;
+    right: 30px;
+    background: #f5c518;
+    color: #000;
     border: none;
-    border-radius: 12px;
+    border-radius: 50%;
     padding: 8px 12px;
+    font-size: 18px;
     font-weight: 700;
     cursor: pointer;
+    transition: 0.3s;
   }
+
+  .lightbox .close:hover { background: #d4aa17; }
 
   .lightbox .nav {
     position: absolute;
@@ -109,50 +120,83 @@
   }
 
   .lightbox .nav button {
-    background: rgba(255,255,255,0.7);
+    background: rgba(245,197,24,0.8);
     border: none;
-    font-size: 36px;
+    font-size: 40px;
     cursor: pointer;
     border-radius: 50%;
     width: 60px;
     height: 60px;
+    transition: 0.3s;
+  }
+
+  .lightbox .nav button:hover {
+    background: #d4aa17;
+  }
+
+  /* Thumbnails */
+  .thumbnails {
+    margin-top: 15px;
+    display: flex;
+    gap: 8px;
+    overflow-x: auto;
+    padding: 5px;
+  }
+
+  .thumbnails img {
+    width: 70px;
+    height: 60px;
+    object-fit: cover;
+    border-radius: 8px;
+    cursor: pointer;
+    opacity: 0.6;
+    transition: 0.3s;
+  }
+
+  .thumbnails img.active,
+  .thumbnails img:hover {
+    opacity: 1;
+    transform: scale(1.05);
+    border: 2px solid #f5c518;
+  }
+
+  /* Counter */
+  .counter {
+    margin-top: 10px;
+    font-size: 14px;
+    color: #f5c518;
+  }
+
+  /* أنيميشن */
+  @keyframes fadeIn {
+    from { opacity: 0; }
+    to { opacity: 1; }
   }
 
   /* موبايل */
   @media (max-width: 600px) {
-    header img {
-      width: 90px;
-    }
-    h1 {
-      font-size: 20px;
-    }
-    .gallery {
-      grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
-      gap: 10px;
-    }
-    .gallery img {
-      height: 160px;
-    }
+    .gallery { columns: 2 150px; }
     .lightbox .nav button {
       font-size: 28px;
-      width: 50px;
-      height: 50px;
+      width: 45px;
+      height: 45px;
     }
+    .lightbox img { max-width: 95vw; max-height: 65vh; }
   }
 </style>
 </head>
 <body>
 
 <header>
-  <img src="./لوجو.png" alt="Wood and Motion Logo"> <!-- غير المسار حسب مكان اللوجو -->
-  <h1>صور دريسينج</h1>
+  <img src="./لوجو.png" alt="Wood and Motion Logo">
+  <h1>معرض الصور</h1>
 </header>
 
 <div class="gallery" id="gallery">
-  <img src="./دريسينج/WhatsApp Image 2025-08-17 at 00.48.36_f2a97829.jpg" alt="مطبخ 1">
-  <img src="./دريسينج/WhatsApp Image 2025-08-17 at 00.48.59_6547e951.jpg" alt="مطبخ 2">
-  <img src="./دريسينج/WhatsApp Image 2025-08-17 at 00.48.59_6547e951.jpg" alt="مطبخ 3">
-  <img src="./دريسينج/WhatsApp Image 2025-08-17 at 00.49.01_0ff4fb4d.jpg" alt="مطبخ 4">
+  <img src="./دريسينج/WhatsApp Image 2025-08-17 at 00.48.36_f2a97829.jpg" alt="دريسينج 1">
+  <img src="./دريسينج/WhatsApp Image 2025-08-17 at 00.48.59_6547e951.jpg" alt="دريسينج 2">
+  <img src="./دريسينج/WhatsApp Image 2025-08-17 at 00.49.01_0ff4fb4d.jpg" alt="دريسينج 3">
+  <img src="./دريسينج/WhatsApp Image 2025-08-17 at 00.48.59_6547e951.jpg" alt="دريسينج 4">
 </div>
 
 <a href="index.html" class="back">⬅ رجوع</a>
@@ -165,6 +209,8 @@
     <button id="next">&#10095;</button>
   </div>
   <img id="lbImg" src="" alt="Zoomed Image">
+  <div class="counter" id="counter"></div>
+  <div class="thumbnails" id="thumbnails"></div>
 </div>
 
 <script>
@@ -174,15 +220,32 @@ const lbImg = document.getElementById('lbImg');
 const closeBtn = document.getElementById('lbClose');
 const prevBtn = document.getElementById('prev');
 const nextBtn = document.getElementById('next');
+const thumbnails = document.getElementById('thumbnails');
+const counter = document.getElementById('counter');
 let currentIndex = 0;
 
+// إنشاء الصور المصغرة
 images.forEach((img, i) => {
-  img.addEventListener('click', () => {
-    currentIndex = i;
-    lbImg.src = img.src;
-    lightbox.classList.add('open');
-    document.body.style.overflow = 'hidden';
-  });
+  const thumb = document.createElement('img');
+  thumb.src = img.src;
+  thumb.addEventListener('click', () => showImage(i));
+  thumbnails.appendChild(thumb);
+});
+
+const thumbs = thumbnails.querySelectorAll('img');
+
+function showImage(index) {
+  currentIndex = index;
+  lbImg.src = images[currentIndex].src;
+  thumbs.forEach(t => t.classList.remove('active'));
+  thumbs[currentIndex].classList.add('active');
+  counter.textContent = `الصورة ${currentIndex+1} من ${images.length}`;
+  lightbox.classList.add('open');
+  document.body.style.overflow = 'hidden';
+}
+
+images.forEach((img, i) => {
+  img.addEventListener('click', () => showImage(i));
 });
 
 closeBtn.addEventListener('click', () => {
@@ -191,12 +254,10 @@ closeBtn.addEventListener('click', () => {
 });
 
 prevBtn.addEventListener('click', () => {
-  currentIndex = (currentIndex - 1 + images.length) % images.length;
-  lbImg.src = images[currentIndex].src;
+  showImage((currentIndex - 1 + images.length) % images.length);
 });
 nextBtn.addEventListener('click', () => {
-  currentIndex = (currentIndex + 1) % images.length;
-  lbImg.src = images[currentIndex].src;
+  showImage((currentIndex + 1) % images.length);
 });
 
 lightbox.addEventListener('click', e => {
