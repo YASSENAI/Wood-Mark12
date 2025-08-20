@@ -66,34 +66,48 @@ body{
 /* Projects slider */
 /* تعديل مكان الأسهم */
 /* نخلي الأسهم تحت وبالـ center */
+/* التحكم في مكان الأزرار */
 .slider-controls {
   display: flex;
   justify-content: center;
-  margin-top: 15px;
-  gap: 25px; /* مسافة بين السهمين */
+  align-items: center;
+  margin-top: 20px;
+  gap: 30px; /* المسافة بين السهمين */
 }
 
+/* تنسيق الأزرار */
 .swiper-button-next,
 .swiper-button-prev {
-  position: relative !important; /* نخليهم relative مش absolute */
+  position: relative !important; /* علشان ييجوا في الـ .slider-controls */
   top: auto !important;
   left: auto !important;
   right: auto !important;
   bottom: auto !important;
-  margin: 0;
+
+  width: 45px;
+  height: 45px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  background: #f5c518; /* لون خشبي ذهبي */
   color: #fff; /* لون السهم */
-  background: rgba(0,0,0,0.5);
-  padding: 10px 14px;
+  font-size: 18px;
+
   border-radius: 50%;
-  transition: 0.3s;
+  box-shadow: 0 4px 6px rgba(0,0,0,0.2);
+  cursor: pointer;
+  transition: all 0.3s ease;
 }
 
+/* تأثير الهوفر */
 .swiper-button-next:hover,
 .swiper-button-prev:hover {
-  background: rgba(0,0,0,0.8);
+  background: #c89f0f; /* لون أغمق عند الهوفر */
+  transform: scale(1.1);
 }
 
-/* تنسيق السلايد */
+/* تعديل حجم السلايد */
 .swiper-slide {
   display: grid;
   place-items: center;
@@ -101,10 +115,9 @@ body{
 }
 
 .swiper-slide img {
-  width: 100%;
-  height: 360px;
-  object-fit: cover;
-  border-radius: 10px;
+  max-width: 100%;
+  border-radius: 12px;
+  box-shadow: 0 6px 12px rgba(0,0,0,0.15);
 }
 
 .slide-caption {
