@@ -64,7 +64,24 @@ body{
 .card:hover .overlay{opacity:1}
 
 /* Projects slider */
-.swiper{margin-top:18px;border-radius:12px;overflow:hidden;border:1px solid var(--ring);background:var(--card);box-shadow:0 10px 30px var(--ring)}
+/* تعديل مكان الأسهم */
+.swiper-button-next,
+.swiper-button-prev {
+  position: relative;   /* بدل absolute */
+  top: auto;
+  left: auto;
+  right: auto;
+  bottom: auto;
+  margin: 10px 5px;     /* مسافة بسيطة حوالين الأسهم */
+}
+
+/* نعمل كونتينر للأسهم ونخليها تحت */
+.slider-controls {
+  display: flex;
+  justify-content: center; /* علشان تبقى في النص */
+  margin-top: 15px;
+  gap: 20px; /* مسافة بين السهمين */
+}
 .swiper-slide{display:grid;place-items:center;position:relative}
 .swiper-slide img{width:100%;height:360px;object-fit:cover}
 .slide-caption{position:absolute;left:16px;bottom:12px;background:rgba(0,0,0,.5);color:#fff;padding:8px 12px;border-radius:8px;font-weight:600}
