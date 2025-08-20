@@ -34,26 +34,7 @@ document.addEventListener('DOMContentLoaded', function(){
   });
 
   /* ====== Theme toggle (dark/light) ====== */
-  const themeBtn = document.getElementById('themeToggle');
-  const root = document.documentElement;
-  if(themeBtn){
-    const applyMode = (mode) => {
-      if(mode === 'dark') root.classList.add('dark-mode'); else root.classList.remove('dark-mode');
-      themeBtn.textContent = (mode === 'dark') ? '☀️' : '🌙';
-      localStorage.setItem('site-theme', mode);
-    };
-    const saved = localStorage.getItem('site-theme');
-    if(saved) applyMode(saved);
-    else {
-      const prefersDark = window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches;
-      applyMode(prefersDark ? 'dark' : 'light');
-    }
-    themeBtn.addEventListener('click', ()=>{
-      const current = localStorage.getItem('site-theme') === 'dark' ? 'dark' : 'light';
-      applyMode(current === 'dark' ? 'light' : 'dark');
-    });
-  }
-
+//
   /* ====== GALLERY LIGHTBOX ====== */
   const galleryImgs = Array.from(document.querySelectorAll('.gallery .card img'));
   const lb = document.getElementById('lightbox');
