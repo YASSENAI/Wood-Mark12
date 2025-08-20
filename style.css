@@ -75,7 +75,7 @@ body{
 
 .swiper-button-next,
 .swiper-button-prev {
-  position: relative !important; /* نخليهم relative مش absolute */
+  position:absolute !important; /* نخليهم relative مش absolute */
   top: auto !important;
   left: auto !important;
   right: auto !important;
