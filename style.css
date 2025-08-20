@@ -64,7 +64,35 @@ body{
 .card:hover .overlay{opacity:1}
 
 /* Projects slider */
-/* شكل السلايد */
+/* نخلي الأسهم تحت وبالـ center */
+.slider-controls {
+  display: flex;
+  justify-content: center;
+  margin-top: 15px;
+  gap: 25px; /* مسافة بين السهمين */
+}
+
+.swiper-button-next,
+.swiper-button-prev {
+  position: relative !important; /* نخليهم relative مش absolute */
+  top: auto !important;
+  left: auto !important;
+  right: auto !important;
+  bottom: auto !important;
+  margin: 0;
+  color: #fff; /* لون السهم */
+  background: rgba(0,0,0,0.5);
+  padding: 10px 14px;
+  border-radius: 50%;
+  transition: 0.3s;
+}
+
+.swiper-button-next:hover,
+.swiper-button-prev:hover {
+  background: rgba(0,0,0,0.8);
+}
+
+/* تنسيق السلايد */
 .swiper-slide {
   display: grid;
   place-items: center;
@@ -87,44 +115,6 @@ body{
   padding: 8px 12px;
   border-radius: 8px;
   font-weight: 600;
-}
-
-/* الكنترولز تحت */
-.slider-controls {
-  display: flex;
-  justify-content: center;
-  margin-top: 15px;
-  gap: 25px;
-}
-
-/* تنسيق الأسهم */
-.swiper-button-next,
-.swiper-button-prev {
-  position: relative !important;
-  top: auto !important;
-  left: auto !important;
-  right: auto !important;
-  bottom: auto !important;
-  margin: 0;
-  width: 40px;
-  height: 40px;
-  background: rgba(0,0,0,0.5);
-  border-radius: 50%;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  transition: 0.3s;
-}
-
-.swiper-button-next::after,
-.swiper-button-prev::after {
-  font-size: 18px;
-  color: #fff;
-}
-
-.swiper-button-next:hover,
-.swiper-button-prev:hover {
-  background: rgba(0,0,0,0.8);
 }
 
 /* Services */
