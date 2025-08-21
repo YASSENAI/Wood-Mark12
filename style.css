@@ -337,11 +337,7 @@ body{
   .card img{height:160px}
 }
 
-html {
-  color-scheme: dark;
-  background: #000000;
-}
-body {
-  background: #000000;
-  color: #ffffff; /* النص أبيض */
+html, body {
+  background-color: #000000 !important;
+  color: #ffffff;
 }
