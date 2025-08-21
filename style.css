@@ -336,3 +336,12 @@ body{
   .swiper-slide img{height:220px}
   .card img{height:160px}
 }
+
+html {
+  color-scheme: dark;
+  background: #000000;
+}
+body {
+  background: #000000;
+  color: #ffffff; /* النص أبيض */
+}
