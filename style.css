@@ -1,17 +1,17 @@
 :root {
-  --bg: #f7f5f2;
-  --fg: #1a1a1a;
-  --muted: #6b6b6b;
-  --brand: #7a5c3b;
-  --card: #ffffff;
-  --ring: rgba(0,0,0,.06);
-  --soft: #fbf9f7;
+  --bg:#0f0f0f;
+  --fg:#f3f3f3;
+  --muted:#b5b5b5;
+  --card:#161616;
+  --ring:rgba(255,255,255,.06);
+  --soft:#111;
 }
 
 /* Reset & base */
 *{box-sizing:border-box;margin:0;padding:0}
 html,body{height:100%}
 body{
+  color-scheme: only dark;
   background:var(--bg);
   color:var(--fg);
   font-family:"Tajawal", Arial, sans-serif;
