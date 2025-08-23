@@ -1,4 +1,4 @@
-:root{
+:root {
   --bg: #f7f5f2;
   --fg: #1a1a1a;
   --muted: #6b6b6b;
@@ -6,16 +6,6 @@
   --card: #ffffff;
   --ring: rgba(0,0,0,.06);
   --soft: #fbf9f7;
-}
-@media (prefers-color-scheme: dark){
-  :root{
-    --bg:#0f0f0f;
-    --fg:#f3f3f3;
-    --muted:#b5b5b5;
-    --card:#161616;
-    --ring:rgba(255,255,255,.06);
-    --soft:#111;
-  }
 }
 
 /* Reset & base */
@@ -335,9 +325,4 @@ body{
   .site-title{font-size:22px}
   .swiper-slide img{height:220px}
   .card img{height:160px}
-}
-
-html, body {
-  background-color: #000000 !important;
-  color: #ffffff;
 }
