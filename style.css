@@ -11,9 +11,10 @@
 *{box-sizing:border-box;margin:0;padding:0}
 html,body{height:100%}
 body{
-  color-scheme: only dark;
-  background:var(--bg);
-  color:var(--fg);
+  background: #000;
+  color-scheme: dark;
+  background: var(--bg, #000);
+  color: var(--fg, #f3f3f3);
   font-family:"Tajawal", Arial, sans-serif;
   -webkit-font-smoothing:antialiased;
   -moz-osx-font-smoothing:grayscale;
