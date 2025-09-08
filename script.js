@@ -1,11 +1,11 @@
-// script.js - Lightbox, Swiper, smooth scroll, nav toggle, year
+/* // script.js - Lightbox, Swiper, smooth scroll, nav toggle, year
 document.addEventListener('DOMContentLoaded', function () {
 
-  /* ====== year ====== */
+
   const yearEl = document.getElementById('year');
   if (yearEl) yearEl.textContent = new Date().getFullYear();
 
-  /* ====== NAV toggle for small screens ====== */
+
   const navToggle = document.getElementById('navToggle');
   const navList = document.getElementById('navList');
   if (navToggle && navList) {
@@ -16,7 +16,7 @@ document.addEventListener('DOMContentLoaded', function () {
     });
   }
 
-  /* ====== Smooth scroll for anchors ====== */
+
   document.querySelectorAll('a[href^="#"]').forEach(a => {
     a.addEventListener('click', function (e) {
       const target = this.getAttribute('href');
@@ -31,7 +31,7 @@ document.addEventListener('DOMContentLoaded', function () {
     });
   });
 
-  /* ====== GALLERY LIGHTBOX (safe init) ====== */
+
   const galleryImgs = Array.from(document.querySelectorAll('.gallery .card img'));
   const lb = document.getElementById('lightbox');
   const lbImg = document.getElementById('lbImg');
@@ -91,7 +91,7 @@ document.addEventListener('DOMContentLoaded', function () {
     });
   }
 
-  /* ====== Initialize Swiper sliders ====== */
+
   try {
     document.querySelectorAll('.kitchen-slider').forEach(sliderEl => {
       const paginationEl = sliderEl.querySelector('.swiper-pagination');
@@ -115,7 +115,7 @@ document.addEventListener('DOMContentLoaded', function () {
     console.warn('Swiper init failed', err);
   }
 
-  /* ====== Contact form progressive enhancement ====== */
+
   const contactForm = document.getElementById('contactForm');
   if (contactForm) {
     contactForm.addEventListener('submit', () => {
@@ -124,3 +124,4 @@ document.addEventListener('DOMContentLoaded', function () {
   }
 
 }); // end DOMContentLoaded
+ */

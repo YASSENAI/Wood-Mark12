@@ -1,4 +1,4 @@
-:root {
+ /*:root {
   --bg:#0f0f0f;
   --fg:#f3f3f3;
   --muted:#b5b5b5;
@@ -7,7 +7,7 @@
   --soft:#111;
 }
 
-/* Reset & base */
+
 *{box-sizing:border-box;margin:0;padding:0}
 html,body{height:100%}
 body{
@@ -23,7 +23,7 @@ body{
 }
 .container{max-width:1100px;margin-inline:auto;padding:20px}
 
-/* NAV */
+
 .nav{display:flex;align-items:center;gap:12px;justify-content:space-between;padding:14px 0}
 .brand{display:flex;align-items:center;gap:10px;font-weight:700;font-size:18px;color:var(--fg)}
 .logo-mark{width:44px;height:44px;border-radius:10px;background:linear-gradient(145deg,#8a6a49,#6c5034);display:grid;place-items:center;box-shadow:0 8px 24px rgba(0,0,0,.12)}
@@ -33,7 +33,7 @@ body{
 .nav-list a:hover{background:var(--soft);box-shadow:0 6px 18px var(--ring)}
 .nav-toggle{display:none;background:transparent;border:1px solid var(--ring);padding:8px;border-radius:8px}
 
-/* HERO */
+
 .hero{display:grid;place-items:center;text-align:center;padding:36px 0 12px}
 .hero-inner{max-width:880px}
 .site-title{font-size:32px;margin-bottom:8px}
@@ -42,7 +42,7 @@ body{
 .btn{background:var(--fg);color:var(--bg);padding:10px 16px;border-radius:14px;font-weight:700;text-decoration:none;box-shadow:0 8px 24px var(--ring)}
 .btn.outline{background:transparent;color:var(--fg);border:1px solid var(--ring)}
 
-/* Intro & gallery */
+
 .intro h2{font-size:24px;margin-bottom:6px}
 .lead{color:var(--muted);margin-bottom:18px}
 .gallery{display:grid;grid-template-columns:repeat(auto-fill,minmax(240px,1fr));gap:16px;padding:6px 0}
@@ -54,24 +54,24 @@ body{
 .overlay{position:absolute;inset:0;background:linear-gradient(180deg,rgba(0,0,0,0) 40%, rgba(0,0,0,.45));color:#fff;display:flex;align-items:flex-end;justify-content:center;font-size:18px;padding:18px;opacity:0;transition:opacity .28s}
 .card:hover .overlay{opacity:1}
 
-/* Projects slider */
-/* نخلي الأسهم تحت وبالـ center */
+
+
 .slider-controls {
   display: flex;
   justify-content: center;
   margin-top: 15px;
-  gap: 25px; /* مسافة بين السهمين */
+  gap: 25px; 
 }
 
 .swiper-button-next,
 .swiper-button-prev {
-  position: relative !important; /* نخليهم relative مش absolute */
+  position: relative !important; 
   top: auto !important;
   left: auto !important;
   right: auto !important;
   bottom: auto !important;
   margin: 0;
-  color: #fff; /* لون السهم */
+  color: #fff; 
   background: rgba(0,0,0,0.5);
   padding: 10px 14px;
   border-radius: 50%;
@@ -83,7 +83,7 @@ body{
   background: rgba(0,0,0,0.8);
 }
 
-/* تنسيق السلايد */
+
 .swiper-slide {
   display: grid;
   place-items: center;
@@ -108,13 +108,13 @@ body{
   font-weight: 600;
 }
 
-/* Services */
+
 .section{padding:36px 0}
 .bg-soft{background:transparent}
 .services-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:14px;margin-top:12px}
 .service{background:var(--card);padding:18px;border-radius:12px;border:1px solid var(--ring);box-shadow:0 10px 30px var(--ring)}
 
-/* ABOUT */
+
 .about-grid{display:grid;grid-template-columns:1fr 320px;gap:18px;align-items:center;margin-top:12px}
 .about-text p{color:var(--muted);margin-bottom:12px}
 .about-text ul{list-style:disc;margin-right:20px;color:var(--muted)}
@@ -122,8 +122,8 @@ body{
 .stat{background:var(--card);padding:12px;border-radius:12px;border:1px solid var(--ring);text-align:center}
 .stat strong{display:block;font-size:20px;color:var(--brand)}
 
-/* CONTACT */
-/* ===== Contact Section ===== */
+
+
 .contact-section {
   padding: 60px 20px;
   background: #f9f9f9;
@@ -186,7 +186,7 @@ body{
   text-align: center;
 }
 
-/* Contact Info */
+
 .contact-info p {
   margin-bottom: 10px;
   font-size: 15px;
@@ -228,14 +228,14 @@ body{
   fill: currentColor;
 }
 
-/* Responsive */
+
 @media (max-width: 768px) {
   .contact-grid {
     grid-template-columns: 1fr;
   }
 }
 
-/* LIGHTBOX */
+
 .lightbox{position:fixed;inset:0;display:none;align-items:center;justify-content:center;background:rgba(0,0,0,.85);z-index:999;padding:20px}
 .lightbox.open{display:flex}
 .lightbox img{max-width:92vw;max-height:80vh;border-radius:12px;box-shadow:0 20px 60px rgba(0,0,0,.6)}
@@ -244,8 +244,8 @@ body{
 .lightbox .nav{position:absolute;inset:0;display:flex;align-items:center;justify-content:space-between;padding:0 18px}
 .nav button{background:transparent;border:none;color:#fff;font-size:42px;cursor:pointer}
 
-/* FOOTER */
-/* ================= Footer ================= */
+
+
 .footer {
   background: #111;
   color: #ddd;
@@ -313,7 +313,7 @@ body{
   color: #777;
 }
 
-/* responsive */
+
 @media (max-width:900px){
   .services-grid{grid-template-columns:1fr}
   .about-grid{grid-template-columns:1fr}
@@ -326,4 +326,5 @@ body{
   .site-title{font-size:22px}
   .swiper-slide img{height:220px}
   .card img{height:160px}
-}
+}/*
+

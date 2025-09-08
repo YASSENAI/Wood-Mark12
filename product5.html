@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+<!-- <!DOCTYPE html>
 <html lang="ar" dir="rtl">
 <head>
 <meta charset="UTF-8">
@@ -31,7 +31,7 @@
     letter-spacing: 1px;
   }
 
-  /* جاليري */
+
   .gallery {
     columns: 4 250px;
     column-gap: 15px;
@@ -69,7 +69,7 @@
 
   a.back:hover { background: white; }
 
-  /* Lightbox */
+
   .lightbox {
     position: fixed;
     inset: 0;
@@ -134,7 +134,7 @@
     background: #d4aa17;
   }
 
-  /* Thumbnails */
+
   .thumbnails {
     margin-top: 15px;
     display: flex;
@@ -160,20 +160,19 @@
     border: 2px solid #f5c518;
   }
 
-  /* Counter */
+ 
   .counter {
     margin-top: 10px;
     font-size: 14px;
     color: #f5c518;
   }
 
-  /* أنيميشن */
+
   @keyframes fadeIn {
     from { opacity: 0; }
     to { opacity: 1; }
   }
 
-  /* موبايل */
   @media (max-width: 600px) {
     .gallery { columns: 2 150px; }
     .lightbox .nav button {
@@ -215,7 +214,7 @@
 
 <a href="index.html" class="back">⬅ رجوع</a>
 
-<!-- Lightbox -->
+
 <div class="lightbox" id="lightbox">
   <button class="close" id="lbClose">X</button>
   <div class="nav">
@@ -238,7 +237,7 @@ const thumbnails = document.getElementById('thumbnails');
 const counter = document.getElementById('counter');
 let currentIndex = 0;
 
-// إنشاء الصور المصغرة
+
 images.forEach((img, i) => {
   const thumb = document.createElement('img');
   thumb.src = img.src;
@@ -291,3 +290,4 @@ window.addEventListener('keydown', e => {
 
 </body>
 </html>
+ -->
