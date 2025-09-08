@@ -256,3 +256,84 @@
 </body>
 </html>-->
 
+<!doctype html>
+<html lang="ar" dir="rtl">
+<head>
+  <meta charset="utf-8">
+  <title>InstaPay Button</title>
+  <style>
+    body {
+      display:flex;
+      justify-content:center;
+      align-items:center;
+      min-height:100vh;
+      background:#111;
+      font-family:system-ui, sans-serif;
+    }
+    .pay-btn {
+      background:#007bff;
+      color:#fff;
+      border:none;
+      border-radius:10px;
+      padding:16px 24px;
+      font-size:1.2rem;
+      cursor:pointer;
+      transition:0.2s;
+    }
+    .pay-btn:hover { background:#0056b3; }
+    .toast {
+      position:fixed;
+      bottom:30px;
+      left:50%;
+      transform:translateX(-50%);
+      background:#000;
+      color:#fff;
+      padding:10px 16px;
+      border-radius:8px;
+      opacity:0;
+      transition:opacity .2s ease;
+    }
+    .toast.show { opacity:1; }
+  </style>
+</head>
+<body>
+
+  <!-- غير الرابط ورقمك هنا -->
+  <button class="pay-btn" id="openInstaPay"
+          data-account="01122648024"
+          data-link="https://ipn.eg/S/intiger/instapay/1NvAoc">
+    PRESS HERE
+  </button>
+
+  <div class="toast" id="toast">تم نسخ رقم InstaPay</div>
+
+  <script>
+    (function(){
+      const btn = document.getElementById('openInstaPay');
+      const toast = document.getElementById('toast');
+      const account = btn.dataset.account;  // رقم الموبايل أو الإيميل
+      const link = btn.dataset.link;        // رابط InstaPay لو عندك
+
+      btn.addEventListener('click', async ()=>{
+        // افتح الرابط (لو موجود)
+        if (link) window.open(link, "_blank");
+
+        // انسخ الحساب
+        try {
+          await navigator.clipboard.writeText(account);
+          showToast("تم نسخ رقم InstaPay: " + account);
+        } catch(err){
+          console.error(err);
+          showToast("انسخ الرقم يدويًا: " + account);
+        }
+      });
+
+      function showToast(msg){
+        toast.textContent = msg;
+        toast.classList.add("show");
+        setTimeout(()=>toast.classList.remove("show"),2000);
+      }
+    })();
+  </script>
+</body>
+</html>
