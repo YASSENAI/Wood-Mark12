@@ -1,4 +1,4 @@
- /*:root {
+:root {
   --bg:#0f0f0f;
   --fg:#f3f3f3;
   --muted:#b5b5b5;
@@ -326,5 +326,5 @@ body{
   .site-title{font-size:22px}
   .swiper-slide img{height:220px}
   .card img{height:160px}
-}/*
+}
 

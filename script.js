@@ -1,4 +1,4 @@
-/* // script.js - Lightbox, Swiper, smooth scroll, nav toggle, year
+ // script.js - Lightbox, Swiper, smooth scroll, nav toggle, year
 document.addEventListener('DOMContentLoaded', function () {
 
 
@@ -124,4 +124,3 @@ document.addEventListener('DOMContentLoaded', function () {
   }
 
 }); // end DOMContentLoaded
- */
